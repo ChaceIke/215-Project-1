@@ -37,4 +37,19 @@ int main() {
     } else {
         std::cout << "Failed to remove item: " << itemToRemove << std::endl;
     }
+
+    // Find an item in the bag
+    int itemToFind = 3;
+    if (bag.find(itemToFind)) {
+        std::cout << "Found item: " << itemToFind << std::endl;
+    } else {
+        std::cout << "Item not found: " << itemToFind << std::endl;
+    }
+
+    int itemToFind2 = 5;
+    if (bag.find(itemToFind2)) {
+        std::cout << "Found item: " << itemToFind2 << std::endl;
+    } else {
+        std::cout << "Item not found: " << itemToFind2 << std::endl;
+    }
 };

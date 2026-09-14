@@ -65,7 +65,13 @@ bool ABag<E>::removeTop(E& returnValue) {
 
 template <class E>
 bool ABag<E>::find(E& returnValue) const {
-    return false; // Stub implementation
+    for (int i = 0; i < itemCount; ++i) {
+        if (items[i] == returnValue) {
+            returnValue = items[i]; // Update the returnValue with the found item
+            return true; // Item found
+        }
+    }
+    return false; // Item not found
 };
 
 template <class E>
