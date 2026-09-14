@@ -53,7 +53,6 @@ bool ABag<E>::removeItem(E& item) {
     return false; // Item not found
 };
 
-// Everything below is a stub implementation for now.
 template <class E>
 bool ABag<E>::removeTop(E& returnValue) {
     if (itemCount == 0) {
@@ -63,9 +62,10 @@ bool ABag<E>::removeTop(E& returnValue) {
     return true;
 };
 
+// This is a bag data structure, so the find method will begin its search from the last item added and work its way to the first item added.
 template <class E>
 bool ABag<E>::find(E& returnValue) const {
-    for (int i = 0; i < itemCount; ++i) {
+    for (int i = itemCount - 1; i >= 0; --i) {
         if (items[i] == returnValue) {
             returnValue = items[i]; // Update the returnValue with the found item
             return true; // Item found
@@ -85,7 +85,7 @@ bool ABag<E>::inspectTop(E& item) const {
 
 template <class E>
 void ABag<E>::emptyBag() {
-    itemCount = 0; // Reset item count to zero
+    itemCount = 0; // Reset item count to zero. No need to delete items as unique_ptr will handle memory management automatically.
 };
 
 template <class E>
