@@ -42,12 +42,12 @@ bool ABag<E>::addItem(const E& item) {
     return true;
 };
 
-// Everything below is a stub method implementation for now
 template <class E>
 bool ABag<E>::removeItem(E& item) {
     return false; // Stub implementation
 };
 
+// Everything below is a stub implementation for now.
 template <class E>
 bool ABag<E>::removeTop(E& returnValue) {
     return false; // Stub implementation
@@ -60,7 +60,11 @@ bool ABag<E>::find(E& returnValue) const {
 
 template <class E>
 bool ABag<E>::inspectTop(E& item) const {
-    return false; // Stub implementation
+    if (itemCount == 0) {
+        return false; // Bag is empty
+    }
+    item = items[itemCount - 1]; // Get the last item addded
+    return true;
 };
 
 template <class E>
