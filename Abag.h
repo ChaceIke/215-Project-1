@@ -42,11 +42,14 @@ bool ABag<E>::addItem(const E& item) {
     return true;
 };
 
+// The removeItem method will use the bag data structure property of last in first out to find and then remove the item from the bag.
 template <class E>
 bool ABag<E>::removeItem(E& item) {
-    for (int i = 0; i < itemCount; ++i) {
+    for (int i = itemCount - 1; i >= 0; --i) {
         if (items[i] == item) {
-            items[i] = items[--itemCount];
+            item = items[i]; // Update the item with the found item
+            items[i] = items[itemCount - 1];
+            --itemCount; // Decrement itemCount
             return true; // Item found and removed. Unique_ptr automatically manages memory, so no need to delete.
         }
     }
