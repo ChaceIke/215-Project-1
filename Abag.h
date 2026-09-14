@@ -50,7 +50,11 @@ bool ABag<E>::removeItem(E& item) {
 // Everything below is a stub implementation for now.
 template <class E>
 bool ABag<E>::removeTop(E& returnValue) {
-    return false; // Stub implementation
+    if (itemCount == 0) {
+        return false; // Bag is empty
+    }
+    returnValue = items[--itemCount]; // Decrement itemCount and return the last item added
+    return true;
 };
 
 template <class E>

@@ -14,10 +14,13 @@ int main() {
         }
     }
 
-    // Attempt to add one more item to test capacity limit
-    if (!bag.addItem(10)) {
-        std::cout << "Failed to add item: 10 (Bag is full)" << std::endl;
-    }
+    // Inspect the top item
+    int topItem;
+    if (bag.inspectTop(topItem)) {
+        std::cout << "The top item in the bag is: " << topItem << std::endl;
+    } else {
+        std::cout << "The bag is empty." << std::endl;
+    };
 
     return 0;
 }
