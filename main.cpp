@@ -22,10 +22,19 @@ int main() {
         std::cout << "The bag is empty." << std::endl;
     };
 
+    // Remove the top item
     int topItemRemoved;
     if (bag.removeTop(topItemRemoved)) {
         std::cout << "Removed item: " << topItemRemoved << std::endl;
     } else {
         std::cout << "Failed to remove item: " << topItemRemoved << std::endl;
     }
-    };
+
+    //Remove a specific item
+    int itemToRemove = 5;
+    if (bag.removeItem(itemToRemove)) {
+        std::cout << "Removed item: " << itemToRemove << std::endl;
+    } else {
+        std::cout << "Failed to remove item: " << itemToRemove << std::endl;
+    }
+};

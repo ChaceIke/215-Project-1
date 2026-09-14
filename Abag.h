@@ -44,7 +44,13 @@ bool ABag<E>::addItem(const E& item) {
 
 template <class E>
 bool ABag<E>::removeItem(E& item) {
-    return false; // Stub implementation
+    for (int i = 0; i < itemCount; ++i) {
+        if (items[i] == item) {
+            items[i] = items[--itemCount];
+            return true; // Item found and removed. Unique_ptr automatically manages memory, so no need to delete.
+        }
+    }
+    return false; // Item not found
 };
 
 // Everything below is a stub implementation for now.
@@ -67,7 +73,7 @@ bool ABag<E>::inspectTop(E& item) const {
     if (itemCount == 0) {
         return false; // Bag is empty
     }
-    item = items[itemCount - 1]; // Get the last item addded
+    item = items[itemCount - 1]; // Get the last item added
     return true;
 };
 
