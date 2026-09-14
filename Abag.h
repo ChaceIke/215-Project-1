@@ -4,14 +4,14 @@
 #include <memory> // for std::unique_ptr
 
 template <class E>
-class Abag : public Bag<E> { // Abag class inherits from Bag<E>
+class ABag : public Bag<E> { // ABag class inherits from Bag<E>
 private:
     std::unique_ptr<E[]> items; // unique pointer to dynamically allocated array. Satisfies the requirement of using a smart pointer for memory management.
     int capacity;               // maximum number of items the bag can hold
     int itemCount;              // current number of items in the bag
 
 public:
-    Abag()
+    ABag(); // Constructor
 
     bool addItem(const E& item) override;
     bool removeItem(E& item) override;
@@ -19,24 +19,66 @@ public:
     bool find(E& returnValue) const override;
     bool inspectTop(E& item) const override;
     void emptyBag() override;
-    bool operator+=(const E& item);
+    bool operator+=(const E& item) override;
     int numItems() const override;
     int bagCapacity() const override;
 
 };
 
-// Constructor implementation for Abag class
+// Constructor implementation for ABag class
 template <class E>
-Abag<E>::Abag() : capacity(10), itemCount(0) {
+ABag<E>::ABag() : capacity(10), itemCount(0) {
     items = std::make_unique<E[]>(capacity); // allocate memory for the array using unique_ptr
-}
+};
 
-// addItem implementation for Abag class
+// addItem implementation for ABag class
 template <class E>
-bool Abag<E>::addItem(const E& item) {
+bool ABag<E>::addItem(const E& item) {
     if (itemCount >= capacity) {
         return false; // Bag is full
-    }
+    };
+
     items[itemCount++] = item; // Add item and increment count
     return true;
+};
+
+// Everything below is a stub method implementation for now
+template <class E>
+bool ABag<E>::removeItem(E& item) {
+    return false; // Stub implementation
+};
+
+template <class E>
+bool ABag<E>::removeTop(E& returnValue) {
+    return false; // Stub implementation
+};
+
+template <class E>
+bool ABag<E>::find(E& returnValue) const {
+    return false; // Stub implementation
+};
+
+template <class E>
+bool ABag<E>::inspectTop(E& item) const {
+    return false; // Stub implementation
+};
+
+template <class E>
+void ABag<E>::emptyBag() {
+    itemCount = 0; // Reset item count to zero
+};
+
+template <class E>
+bool ABag<E>::operator+=(const E& item) {
+    return addItem(item); // Use addItem functionality for operator+=
+};
+
+template <class E>
+int ABag<E>::numItems() const {
+    return itemCount; // Return the current number of items in the bag
+};
+
+template <class E>
+int ABag<E>::bagCapacity() const {
+    return capacity; // Return the maximum capacity of the bag
 };
