@@ -28,7 +28,7 @@ void wait(); //Used to pause screen output
 */
 int main() {
 
-	cout << "<Student Name> -- CSCN 215 Programming Assignment 1 -- Bag Dictionary" << endl << endl;
+	cout << "Chace Eichmeier -- CSCN 215 Programming Assignment 1 -- Bag Dictionary" << endl << endl;
 
 	BDictionary<int, string> myIntStrDict(DICTIONARY_SIZE);
 	BDictionary<string, int> myStrIntDict(DICTIONARY_SIZE);
